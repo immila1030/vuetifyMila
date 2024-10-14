@@ -1,10 +1,11 @@
 <template>
-  <v-container class="fill-height">
+<p class="bg-black text-red-500 p-4 m-0">測試</p>
+  <v-container class="fill-height  text-red-500">
     <v-responsive class="align-centerfill-height mx-auto" max-width="900">
       <v-img class="mb-4" height="150" src="@/assets/logo.png" />
 
-      <div class="text-center">
-        <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+      <div class="text-center ">
+        <div class="text-body-2 font-weight-light mb-n1 ">Welcome to</div>
 
         <h1 class="text-h2 font-weight-bold">Vuetify</h1>
       </div>
@@ -26,7 +27,7 @@
             </template>
 
             <template #title>
-              <h2 class="text-h5 font-weight-bold">Get started</h2>
+              <h2 class="text-h5 font-weight-bold  text-red-500">Get started</h2>
             </template>
 
             <template #subtitle>
@@ -50,7 +51,7 @@
         <v-col cols="6">
           <v-card
             append-icon="mdi-open-in-new"
-            class="py-4"
+            class="py-4 text-right text-red-500 "
             color="surface-variant"
             href="https://vuetifyjs.com/"
             prepend-icon="mdi-text-box-outline"
@@ -58,7 +59,7 @@
             rounded="lg"
             subtitle="Learn about all things Vuetify in our documentation."
             target="_blank"
-            title="Documentation"
+            title="123"
             variant="text"
           >
             <v-overlay
