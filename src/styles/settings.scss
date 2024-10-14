@@ -8,3 +8,9 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+@forward 'vuetify/settings' with (
+  $color-pack: false,
+  //禁用套件默認顏色
+  $utilities: false//禁用套件默認mar
+);
