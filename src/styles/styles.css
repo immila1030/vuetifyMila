@@ -1,4 +1,15 @@
-/* 這個檔案室自己創建的，加入tailwind的樣式 */
+/* 這個檔案是自己創建的，加入tailwind的樣式 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+   :root {
+    --background: #F6F6F6;
+    --asideMenu:#FFFFFF
+  }
+  
+  .dark {
+    --background: #121212; 
+    --asideMenu:#1E1E1E
+  }
