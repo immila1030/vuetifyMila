@@ -6,11 +6,11 @@
 
 // Plugins
 import { registerPlugins } from "@/plugins";
-import "../src/styles/styles.css";
+// 在此之前先在終端機安裝tailwind，接著創建src裡的styles資料夾，檔案名稱styles.css(可自訂)
+import "../src/styles/styles.css"; //需在這導入tailwind的css
+import "./styles/generic/_index.scss";
 // Components
 import App from "./App.vue";
-// C:\Users\littl\Desktop\vuetifyMila\src\styles\styles.css
-// C:\Users\littl\Desktop\vuetifyMila\src\index.css
 // Composables
 import { createApp } from "vue";
 
