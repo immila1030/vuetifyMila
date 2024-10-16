@@ -45,6 +45,12 @@ export default defineConfig({
       gzipSize: true, //是否蒐集gzip壓縮檔的大小到分析文件
       brotliSize: true, //是否蒐集brotli壓縮檔的大小到分析文件
     }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), "src/assets/svgs")],
+      // 指定symbolId格式
+      symbolId: "[name]",
+      customDomId: "turing-planet-svgs", // 避免多项目互相影响
+    })
   ],
   define: { 'process.env': {} },
   resolve: {

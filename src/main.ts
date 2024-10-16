@@ -10,6 +10,7 @@ import { registerPlugins } from "@/plugins";
 // import "../src/styles/settings.scss";
 // import "../src/styles/styles.css"; //需在這導入tailwind的css
 import "./styles/generic/_index.scss";
+import 'virtual:svg-icons-register';
 // Components
 import App from "./App.vue";
 // Composables

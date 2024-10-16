@@ -3,9 +3,13 @@
 :root {
   --background: #f6f6f6;
   --asideMenu: #ffffff;
+  --primary: #015C61;
+  --border: #015C61
 }
 
 .dark {
   --background: #121212;
   --asideMenu: #1e1e1e;
+  --primary: #ffffff;
+  --border:#ffffff
 }

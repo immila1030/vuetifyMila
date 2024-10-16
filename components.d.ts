@@ -7,9 +7,23 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    2: typeof import('./src/components/live copy 2.vue')['default']
+    3: typeof import('./src/components/dashboard copy 3.vue')['default']
+    4: typeof import('./src/components/dashboard copy 4.vue')['default']
+    5: typeof import('./src/components/dashboard copy 5.vue')['default']
+    copy: typeof import('./src/components/live copy.vue')['default']
+    Dashboard: typeof import('./src/components/Dashboard.vue')['default']
+    Data: typeof import('./src/components/Data.vue')['default']
+    Live: typeof import('./src/components/Live.vue')['default']
     MainLayout: typeof import('./src/components/MainLayout.vue')['default']
+    Materials: typeof import('./src/components/Materials.vue')['default']
+    Profile: typeof import('./src/components/Profile.vue')['default']
+    Project: typeof import('./src/components/Project.vue')['default']
+    Projects: typeof import('./src/components/Projects.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
+    Team: typeof import('./src/components/Team.vue')['default']
+    Work: typeof import('./src/components/Work.vue')['default']
   }
 }

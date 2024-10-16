@@ -1,0 +1,10 @@
+[
+  { "name": "首頁", "path": "/home", "icon": "dashboard" },
+  { "name": "作品", "path": "/work", "icon": "work" },
+  { "name": "專案", "path": "/projects", "icon": "projects" },
+  { "name": "素材", "path": "/materials", "icon": "materials" },
+  { "name": "團隊", "path": "/team", "icon": "team" },
+  { "name": "全景直播", "path": "/live", "icon": "live" },
+  { "name": "詳細數據", "path": "/data", "icon": "data" },
+  { "name": "個人中心", "path": "/profile", "icon": "profile" }
+]

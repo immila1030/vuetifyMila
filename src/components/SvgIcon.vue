@@ -1,27 +1,24 @@
 <template>
-  <i class="sketch-icon">
-    <svg class="icon" aria-hidden="true">
-      <use :xlink:href="iconName"></use>
-    </svg>
-  </i>
+<!-- 參照：https://www.cnblogs.com/liuminxiu0707/p/18143399 -->
+  <svg :class="className" :style="{ width, height: _height }">
+    <use :xlink:href="iconName"></use>
+  </svg>
 </template>
 
-<script>
-export default {
-  name: "SvgIcon",
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-  },
-  computed: {
-    iconName() {
-      console.log("ads", this.name);
-      return `#${this.name}`;
-    },
-  },
-};
+<script setup lang="ts">
+import { computed } from "vue";
+const props = defineProps({
+  name: { type: String, require: true },
+  width: { type: String, default: "16px" },
+  height: { type: String },
+  className: { type: String },
+});
+const _height = computed(() => {
+  return props.height ? props.height : props.width;
+});
+const iconName = computed(() => {
+  return `#${props.name}`;
+});
 </script>
 
-<!-- 參考： https://cloud.tencent.com/developer/article/1965373 -->
+<style lang="scss" scoped></style>
