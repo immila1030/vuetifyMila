@@ -10,14 +10,6 @@ declare module 'vue' {
     MainLayout: typeof import('./src/components/MainLayout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    VApp: typeof import('vuetify/lib')['VApp']
-    VAppBar: typeof import('vuetify/lib')['VAppBar']
-    VLayout: typeof import('vuetify/lib')['VLayout']
-    VList: typeof import('vuetify/lib')['VList']
-    VListItem: typeof import('vuetify/lib')['VListItem']
-    VMain: typeof import('vuetify/lib')['VMain']
-    VNavigationDrawer: typeof import('vuetify/lib')['VNavigationDrawer']
-    VToolbar: typeof import('vuetify/lib')['VToolbar']
-    VToolbarTitle: typeof import('vuetify/lib')['VToolbarTitle']
+    SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
   }
 }

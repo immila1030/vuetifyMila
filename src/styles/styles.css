@@ -1,15 +1,11 @@
-/* 這個檔案是自己創建的，加入tailwind的樣式 */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 這個檔案是自己創建的，加入我自定義的暗黑的樣式，以及其他的樣式 */
 
+:root {
+  --background: #f6f6f6;
+  --asideMenu: #ffffff;
+}
 
-   :root {
-    --background: #F6F6F6;
-    --asideMenu:#FFFFFF
-  }
-  
-  .dark {
-    --background: #121212; 
-    --asideMenu:#1E1E1E
-  }
+.dark {
+  --background: #121212;
+  --asideMenu: #1e1e1e;
+}

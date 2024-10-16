@@ -1,0 +1,14 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+
+// 這邊可以自定義自己要的樣式
+@use 'vuetify/settings' with (
+  $rounded: (
+    '50': 50px,
+  )
+);

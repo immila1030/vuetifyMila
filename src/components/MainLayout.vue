@@ -19,21 +19,25 @@
       <v-navigation-drawer
         :mobile-breakpoint="992"
         :width="250"
-        class="asideMenu"
-        :style="{ borderRadius: '50px' }"
+        class="asideMenu rounded-te-50 border-none"
       >
-        <v-list class="asideMenu">
+        <v-btn class="rounded-50" prepend-icon="$vuetify" variant="outlined">
+          創建作品
+        </v-btn>
+        <svg-icon name="plus" />
+        <v-list class="mt-5">
           <v-list-item title="側邊攔"></v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main class="" style="overflow-y: auto">
         <div class="overflow">
           <p>Main Content</p>
-          <p class="" v-for="i in 50" :key="i">Item {{ i }}</p>
+          <p class="d-none" v-for="i in 50" :key="i">Item {{ i }}</p>
         </div>
       </v-main>
     </v-layout>
   </v-app>
+  <svg-icon name="plus"></svg-icon>
 </template>
 
 <script setup lang="ts">
@@ -46,6 +50,7 @@ function toggleTheme() {
 }
 </script>
 <style scoped>
+@import "@/styles/settings.scss";
 .background {
   background-color: var(--background);
 }

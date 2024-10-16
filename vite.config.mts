@@ -6,11 +6,12 @@ import Vue from '@vitejs/plugin-vue';
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'; //vite-plugin-vuetify自動處理組件導入與樣式，只有使用的組件才會被導入。(支持treeshaking[樹搖])
 import ViteFonts from 'unplugin-fonts/vite';
 import VueRouter from 'unplugin-vue-router/vite';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import path from 'path';
 // Utilities
 import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
-import { visualizer } from "rollup-plugin-visualizer";
+import { visualizer } from 'rollup-plugin-visualizer';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -20,10 +21,12 @@ export default defineConfig({
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
-      autoImport: true,//這邊如果是true，那會自動幫我們引用vuetify的組件。如果是false則我們需要自己引入組件。
-      // styles: {
-      //   configFile: 'src/styles/settings.scss',
-      // },
+      autoImport: true, //這邊如果是true，那會自動幫我們引用vuetify的組件。如果是false則我們需要自己引入組件。
+      // 我的使用vuetify和Tailwind的CSS優缺點連結：
+      // https://www.notion.so/vuetify-Tailwind-CSS-121d1f8123ad80239deacd4243c5a1e3?pvs=4
+      styles: {
+        configFile: 'src/styles/settings.scss', //自定義的vuetify的CSS
+      },
     }),
     Components(),
     ViteFonts({
