@@ -12,3 +12,45 @@
     '50': 50px,
   )
 );
+
+.background {
+  background-color: var(--background);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.texts-primary {
+  color: var(--primary);
+}
+.asideMenu {
+  background-color: var(--asideMenu);
+}
+/* vuetify的border無法切換顏色，這邊改自己寫 */
+.borders-primary {
+  border-left: 3px solid var(--border);
+}
+/* 因為vuetify的padding無法像Tailwind直接在class使用px，所以我這邊自己自定義我的側邊欄的padding */
+.nav-content {
+  padding: 12px 20px 12px 30px;
+}
+.active-nav-content {
+  padding: 12px 20px 12px 27px;
+}
+.texts-primary-gray {
+  color: var(--primaryGray);
+}
+.texts-secondary-gray {
+  color: var(--secondaryGray);
+}
+.background-hover {
+  background-color: var(--backgroundHover);
+}
+.texts-secondary-color{
+  color: var(--secondary);
+}
+.progress-bg-color{
+  background-color: var(--progress);
+}
+.text-medium {
+  font-size: var(--font-size-medium);
+}

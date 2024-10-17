@@ -1,15 +1,29 @@
 /* 這個檔案是自己創建的，加入我自定義的暗黑的樣式，以及其他的樣式 */
-
+/* vuetify使用的font-size都是rem，所以我自定義px */
 :root {
+  --font-size-medium: 16px;
   --background: #f6f6f6;
   --asideMenu: #ffffff;
   --primary: #015C61;
-  --border: #015C61
+  --secondary:#60A4A9;
+  --border: #015C61;
+  --primaryGray:#6D6D6D;
+  --secondaryGray:#A7A7A7;
+  --backgroundHover:#EAF6F6;
+  --progress:#F5F5F5;
+  --error:#FD4D4F
 }
 
 .dark {
+  --font-size-medium: 16px;
   --background: #121212;
   --asideMenu: #1e1e1e;
-  --primary: #ffffff;
-  --border:#ffffff
+  --primary: #e0e0e0;
+  --secondary: #42787B;
+  --border:#ffffff;
+  --primaryGray:#9e9e9e;
+  --secondaryGray:#bdbdbd;
+  --backgroundHover: #2a2a2a;
+  --progress: #4A4A4A;
+  --error: #C62828;
 }
