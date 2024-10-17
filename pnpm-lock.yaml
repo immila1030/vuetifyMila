@@ -109,7 +109,7 @@ importers:
         specifier: ^2.0.3
         version: 2.0.4(vite@5.4.8(@types/node@20.16.11)(sass@1.77.6))(vue@3.5.12(typescript@5.6.3))(vuetify@3.7.2)
       vue-router:
-        specifier: ^4.4.0
+        specifier: ^4.4.5
         version: 4.4.5(vue@3.5.12(typescript@5.6.3))
       vue-tsc:
         specifier: ^2.0.26

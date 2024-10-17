@@ -14,7 +14,7 @@
       <v-navigation-drawer
         :mobile-breakpoint="992"
         :width="250"
-        class="asideMenu rounded-te-50 border-none"
+        class="asideMenu rounded-te-50 border-none d-flex flex-column justify-space-between"
       >
         <v-btn
           class="rounded-50 texts-primary mt-10 d-flex mx-auto"
@@ -35,10 +35,10 @@
               :to="item.path"
               :class="{
                 'borders-primary': isActive(item.path),
-                'px-6': isActive(item.path),
-                'px-7': !isActive(item.path),
+                'nav-content':!isActive(item.path),
+                'active-nav-content':isActive(item.path),
               }"
-              class="texts-primary w-100 d-flex rounded-0 justify-start"
+              class="texts-primary w-100 d-flex rounded-0 justify-start "
               :height="50"
               variant="text"
             >
@@ -47,15 +47,17 @@
             </v-btn>
           </v-list-item>
         </v-list>
+        <svg-icon class="mt-auto" name="plus"></svg-icon>
       </v-navigation-drawer>
       <v-main class="" style="overflow-y: auto">
         <div class="overflow">
           <router-view />
         </div>
       </v-main>
+      
     </v-layout>
   </v-app>
-  <svg-icon name="plus"></svg-icon>
+
 </template>
 
 <script setup lang="ts">
@@ -90,5 +92,12 @@ function isActive(path) {
 /* vuetify的border無法切換顏色，這邊改自己寫 */
 .borders-primary {
   border-left: 3px solid var(--border);
+}
+/* 因為vuetify的padding無法像Tailwind直接在class使用px，所以我這邊自己自定義我的側邊欄的padding */
+.nav-content{
+  padding: 12px 20px 12px 30px;
+}
+.active-nav-content{
+  padding: 12px 20px 12px 27px;
 }
 </style>
