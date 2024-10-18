@@ -9,7 +9,7 @@
         <svg-icon name="logo" class="texts-primary" width="130" />
 
         <button @click="toggleTheme" class="texts-primary">切換</button>
-        <v-btn class="text-none" stacked>
+        <div class="text-none">
           <v-badge :color="!isDarkMode ? '#FD4D4F' : '#C62828'" content="10">
             <svg-icon
               width="22"
@@ -17,7 +17,7 @@
               class="texts-primary mr-1"
             />
           </v-badge>
-        </v-btn>
+        </div>
 
         <v-menu open-on-hover>
           <template v-slot:activator="{ props }">
