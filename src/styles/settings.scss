@@ -16,7 +16,7 @@
 .background {
   background-color: var(--background);
 }
-.bg-primary {
+.background-primary {
   background-color: var(--primary);
 }
 .texts-primary {
@@ -28,6 +28,9 @@
 /* vuetify的border無法切換顏色，這邊改自己寫 */
 .borders-primary {
   border-left: 3px solid var(--border);
+}
+.borders-point{
+  border: 2px solid var(--border);
 }
 /* 因為vuetify的padding無法像Tailwind直接在class使用px，所以我這邊自己自定義我的側邊欄的padding */
 .nav-content {
@@ -51,6 +54,30 @@
 .progress-bg-color{
   background-color: var(--progress);
 }
-.text-medium {
-  font-size: var(--font-size-medium);
+.texts-lg {
+  font-size: var(--font-size-lg);
+}
+.texts-l {
+  font-size: var(--font-size-l);
+}
+.texts-m {
+  font-size: var(--font-size-m);
+}
+.texts-md {
+  font-size: var(--font-size-md);
+}
+.texts-sm{
+  font-size: var(--font-size-sm);
+}
+.btn-text-white {
+  color: var(--asideMenu);
+}
+.btn-bg-white {
+  background-color: var(--card-btn-color);
+}
+.level-bg {
+  background-color: var(--level-bg-color)
+}
+.white-space-nowrap{
+  white-space:nowrap;
 }

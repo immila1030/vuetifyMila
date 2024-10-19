@@ -1,9 +1,14 @@
 /* 這個檔案是自己創建的，加入我自定義的暗黑的樣式，以及其他的樣式 */
 /* vuetify使用的font-size都是rem，所以我自定義px */
 :root {
-  --font-size-medium: 16px;
+  --font-size-lg: 20px;
+  --font-size-l: 18px;
+  --font-size-md: 16px;
+  --font-size-m: 15px;
+  --font-size-sm: 14px;
   --background: #f6f6f6;
   --asideMenu: #ffffff;
+  --card-btn-color: hsla(0, 0%, 100%, 0.8);
   --primary: #015C61;
   --secondary:#60A4A9;
   --border: #015C61;
@@ -11,13 +16,18 @@
   --secondaryGray:#A7A7A7;
   --backgroundHover:#EAF6F6;
   --progress:#F5F5F5;
-  --error:#FD4D4F
+  --error:#FD4D4F;
+  --level-bg-color:#69C5D3;
+
 }
 
 .dark {
-  --font-size-medium: 16px;
+  --font-size-lg: 20px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
   --background: #121212;
   --asideMenu: #1e1e1e;
+  --card-btn-color:hsla(0, 0%, 12%, 0.8);
   --primary: #e0e0e0;
   --secondary: #42787B;
   --border:#ffffff;
@@ -26,4 +36,5 @@
   --backgroundHover: #2a2a2a;
   --progress: #4A4A4A;
   --error: #C62828;
+  --level-bg-color:#4A8F9A;
 }

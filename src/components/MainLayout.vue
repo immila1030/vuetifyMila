@@ -6,46 +6,50 @@
         height="85"
         :style="{ backgroundColor: 'var(--background)' }"
       >
-        <svg-icon name="logo" class="texts-primary" width="130" />
-
-        <button @click="toggleTheme" class="texts-primary">切換</button>
-        <div class="text-none">
-          <v-badge :color="!isDarkMode ? '#FD4D4F' : '#C62828'" content="10">
-            <svg-icon
-              width="22"
-              name="notifications"
-              class="texts-primary mr-1"
-            />
-          </v-badge>
+        <div class="d-flex justify-space-between w-100 align-center mx-7 h-100">
+          <!-- Logo -->
+          <svg-icon name="logo" class="texts-primary" width="130" />
+          <!-- 切換主題顏色 -->
+          <div class="d-flex ga-5 align-center">
+            <button @click="toggleTheme" class="texts-primary">切換</button>
+            <!-- 通知 -->
+            <v-badge :color="!isDarkMode ? '#FD4D4F' : '#C62828'" content="10" class="cursor-pointer ">
+              <svg-icon
+                width="22"
+                name="notifications"
+                class="texts-primary mr-1"
+              />
+            </v-badge>
+            <!-- 使用者頭貼+名稱+hover選單 -->
+            <v-menu open-on-hover>
+              <template v-slot:activator="{ props }">
+                <div
+                  v-bind="props"
+                  class="d-flex justify-space-between align-center cursor-pointer texts-primary"
+                >
+                  <v-avatar :image="avatar" size="36"></v-avatar>
+                  <span class="mx-1">{{ name }}</span>
+                  <svg-icon name="down" class="mr-3" />
+                </div>
+              </template>
+              <!-- 這邊的v-list 試了使用p-0沒有效果，還是需要使用::v-deep -->
+              <v-list v-model="menuVisible" class="mt-1 p-0 list-container" >
+                <v-list-item
+                  v-for="(item, index) in items"
+                  :key="index"
+                  :value="index"
+                  class="texts-primary-gray py-2"
+                  min-height="32"
+                >
+                  <div class="d-flex align-center">
+                    <svg-icon :name="item.iconName" width="16" class="mr-1" />
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </div>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
         </div>
-
-        <v-menu open-on-hover>
-          <template v-slot:activator="{ props }">
-            <div
-              v-bind="props"
-              class="d-flex justify-space-between align-center cursor-pointer texts-primary"
-            >
-              <v-avatar :image="avatar" size="36"></v-avatar>
-              <span class="mx-1">{{ name }}</span>
-              <svg-icon name="down" class="mr-3" />
-            </div>
-          </template>
-          <!-- 這邊的v-list 試了使用p-0沒有效果，還是需要使用::v-deep -->
-          <v-list class="mt-1 p-0 list-container">
-            <v-list-item
-              v-for="(item, index) in items"
-              :key="index"
-              :value="index"
-              class="texts-primary-gray py-2"
-              min-height="32"
-            >
-              <div class="d-flex align-center">
-                <svg-icon :name="item.iconName" width="16" class="mr-1" />
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </div>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </v-app-bar>
       <!-- 參照網址去設定斷點以及寬度 https://vuetifyjs.com/zh-Hans/api/v-navigation-drawer/#props-close-delay -->
       <v-navigation-drawer
@@ -61,7 +65,7 @@
           style="height: 100%"
         >
           <v-btn
-            class="rounded-50 texts-primary mt-10 d-flex mx-auto text-medium"
+            class="rounded-50 texts-primary mt-10 d-flex mx-auto texts-md"
             :width="140"
             :height="40"
             variant="outlined"
@@ -82,7 +86,7 @@
                   'nav-content': !isActive(item.path),
                   'active-nav-content': isActive(item.path),
                 }"
-                class="texts-primary w-100 d-flex rounded-0 justify-start text-medium"
+                class="texts-primary w-100 d-flex rounded-0 justify-start texts-md"
                 :height="50"
                 variant="text"
               >
@@ -93,7 +97,7 @@
           </v-list>
           <div class="mt-auto">
             <v-btn
-              class="rounded-50 texts-secondary-color mt-10 d-flex mx-auto text-medium"
+              class="rounded-50 texts-secondary-color mt-10 d-flex mx-auto texts-md"
               :width="140"
               :height="40"
               variant="outlined"
@@ -114,7 +118,7 @@
               ></v-progress-linear>
             </v-sheet>
             <div
-              class="texts-secondary-gray d-flex justify-space-between mx-6 mb-5 text-medium"
+              class="texts-secondary-gray d-flex justify-space-between mx-6 mb-5 texts-md"
             >
               <p>空間容量</p>
               <p>
@@ -123,7 +127,7 @@
             </div>
           </div>
           <v-btn
-            class="texts-primary-gray w-100 d-flex rounded-0 justify-center background-hover text-medium"
+            class="texts-primary-gray w-100 d-flex rounded-0 justify-center background-hover texts-md"
             :height="45"
             variant="text"
           >
@@ -132,8 +136,8 @@
           </v-btn>
         </div>
       </v-navigation-drawer>
-      <v-main class="" style="overflow-y: auto">
-        <div class="overflow">
+      <v-main style="overflow-y: auto">
+        <div class="overflow mx-7 h-100">
           <router-view />
         </div>
       </v-main>
@@ -144,9 +148,12 @@
 <script setup lang="ts">
 import menuItems from "@/components/MenuItems.json";
 import avatar from "@/assets/images/avatar.jpg";
-import { ref } from "vue";
+import { ref, provide } from "vue";
 import { useRoute } from "vue-router";
 const isDarkMode = ref(false);
+provide('isDarkMode', isDarkMode);
+//  menuVisible: false,
+const menuVisible = ref(false);
 const route = useRoute();
 const name = "陳經理";
 const items = ref([
@@ -162,10 +169,16 @@ function toggleTheme() {
 function isActive(path) {
   return route.path === path;
 }
+
 </script>
 <style scoped>
 @import "@/styles/settings.scss";
 ::v-deep .list-container {
   padding: 0;
+  
+}
+/* 還是要看F12的Elements才可以蓋掉預設的box-shadow的CSS */
+.v-menu > .v-overlay__content > .v-list {
+  box-shadow: 2px 2px 2px 0px #00000040;
 }
 </style>
