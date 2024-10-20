@@ -167,9 +167,9 @@
         >
           <v-card-item class="px-5 pt-5 pb-7">
             <div
-              class="d-flex justify-space-between align-center mb-1 flex-sm-wrap p-0 texts-primary"
+              class="d-flex justify-space-between mb-1 flex-sm-wrap p-0 texts-primary"
             >
-              <div class="w-50">
+              <div class="w-33">
                 <p class="texts-lg font-weight-bold pl-2 borders-primary mb-5">
                   上傳頭貼
                 </p>
@@ -177,7 +177,7 @@
                   建議尺寸: 500px * 500px ，格式 : jpg、jpeg、png
                 </p>
               </div>
-              <div class="w-50">
+              <div class="w-66">
                 <p class="texts-lg font-weight-bold pl-2 borders-primary mb-5">
                   基本資料
                 </p>
@@ -185,33 +185,63 @@
                 <v-form v-model="valid">
                   <v-container>
                     <v-row>
-                      <v-col cols="12" md="4">
-                        <v-text-field
-                          v-model="firstname"
-                          :counter="10"
-                          :rules="nameRules"
-                          label="First name"
-                          required
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="12" md="4">
-                        <v-text-field
-                          v-model="lastname"
-                          :counter="10"
-                          :rules="nameRules"
-                          label="Last name"
-                          required
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="12" md="4">
-                        <v-text-field
+                      <!-- 因為我們的label和input是分開的，所以這邊我把套件原有的label刪除，改自己寫label出來 -->
+                      <!-- <v-text-field
                           v-model="email"
                           :rules="emailRules"
                           label="E-mail"
                           required
+                        ></v-text-field> -->
+                      <v-col
+                        cols="12"
+                        md="6"
+                        class="d-flex align-center disabled"
+                      >
+                        <label class="background w-100 h-100 label  align-content-sm-center text-end justify-end px-4" for="account">帳號 </label>
+                       <div class=" w-100">
+                        <v-text-field
+                          v-model="phone"
+                          id="account"
+                          disabled
+                          height="20"
+                          variant="outlined"
                         ></v-text-field>
+                       </div>
+                      </v-col>
+                      <v-col cols="12" md="6" class="d-flex align-center">
+                        <label  class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4" for="name"
+                          >名稱<span class="red-asterisk texts-error">*</span>
+                        </label>
+                        <div class="d-flex flex-column w-100">
+                        <v-text-field
+                          id="name"
+                          v-model="firstname"
+                          :rules="firstnameRules"
+                          required
+                          @blur="validateFirstname"
+                          variant="outlined"
+                          elevation="0"
+                        ></v-text-field>
+                        <span v-if="firstnameError" class="texts-error error-message">{{
+                          firstnameError
+                        }}</span>
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6" class="d-flex align-center">
+                        <label class="background w-100 h-100 label  align-content-sm-center text-end px-4" for="email">電子郵件 </label>
+                        <div class="d-flex flex-column w-100">
+                        <v-text-field
+                          id="email"
+                          v-model="email"
+                          :rules="emailRules"
+                          required
+                          @blur="validateEmail"
+                          variant="outlined"
+                        ></v-text-field>
+                         <span v-if="emailError" class="texts-error error-message">{{
+                          emailError
+                        }}</span>
+                        </div>
                       </v-col>
                     </v-row>
                   </v-container>
@@ -246,6 +276,52 @@ const name = "陳經理";
 const phone = "0921302697";
 import { inject } from "vue";
 const isDarkMode = inject("isDarkMode");
+const firstname = ref("");
+const firstnameError = ref("");
+const email = ref("");
+const emailError = ref("");
+// 名稱驗證
+const firstnameRules = [
+  (value: string) => {
+    if (value) return true;
+    return "請填寫名稱";
+  },
+  (value: string) => {
+    if (value?.length <= 10) return true;
+    return "名稱不能超過10個字元";
+  },
+];
+
+const validateFirstname = () => {
+  firstnameError.value = "";
+  // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
+  for (const rule of firstnameRules) {
+    const result = rule(firstname.value);
+    if (result !== true) {
+      firstnameError.value = result;
+      break; 
+    }
+  }
+};
+// 電子郵件驗證
+const emailRules = [
+  (value: string) => {
+    if (!value) return true; // 沒有輸入時，可以通過驗證
+    if (/.+@.+\..+/.test(value)) return true; // 有輸入時要驗證格式
+    return "請輸入有效的電子郵件地址";
+  },
+];
+const validateEmail = () => {
+  emailError.value = "";
+  // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
+  for (const rule of emailRules) {
+    const result = rule(email.value);
+    if (result !== true) {
+      emailError.value = result;
+      break; 
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -263,5 +339,47 @@ const isDarkMode = inject("isDarkMode");
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 4px 4px 2px 0px hsla(0, 0%, 0%, 0.05);
+}
+/* 如果要按照設計稿需要讓input有border，我需要用這樣的方式讓它可以有邊框
+如果使用vuetify的v-text-field 它會包含v-input__control(輸入框)和v-input__details(輸入驗證的錯誤訊息)
+即便不用驗證，一樣會存在 */
+::v-deep input {
+  border: 1px solid var(--secondaryGray);
+  border-radius: 4px;
+  height: 20px;
+}
+/* 而當input被禁用時，也需要使用這樣的方式改它的css */
+/* 取消套件它原有的input透明度和背景顏色 */
+::v-deep .v-field--disabled {
+  opacity: unset;
+  background: var(--input);
+}
+/* 修改套件原有的padding 這些都是需要用開發人員工具去找到它在哪個位置，
+名稱分別不同之外，放置的位置也不同，如沒有用這種方式，無法修改它預設默認
+的CSS */
+::v-deep .v-input--density-default {
+  --v-input-control-height: 0px;
+  --v-input-padding-top: 12px;
+  margin: 12px 20px;
+}
+
+::v-deep .v-field {
+  --v-field-padding-start: 14px;
+  --v-field-padding-end: 14px;
+}
+::v-deep .v-input--density-default .v-field--no-label {
+    --v-field-padding-bottom: 12px;
+}
+::v-deep .v-input__details {
+  display: none;
+}
+.v-sheet {
+  background: transparent;
+}
+.label{
+ max-width: 120px;
+}
+.error-message{
+  margin: 0 20px;
 }
 </style>

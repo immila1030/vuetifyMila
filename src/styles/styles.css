@@ -18,7 +18,8 @@
   --progress:#F5F5F5;
   --error:#FD4D4F;
   --level-bg-color:#69C5D3;
-
+  --input:#f6f6f6;
+  --inputText:#000000;
 }
 
 .dark {
@@ -37,4 +38,6 @@
   --progress: #4A4A4A;
   --error: #C62828;
   --level-bg-color:#4A8F9A;
+  --input:#1e1e1e;
+  --inputText:#f6f6f6;
 }

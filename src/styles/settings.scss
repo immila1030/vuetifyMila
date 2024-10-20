@@ -10,7 +10,7 @@
 @use 'vuetify/settings' with (
   $rounded: (
     '50': 50px,
-  )
+  ),
 );
 
 .background {
@@ -80,4 +80,10 @@
 }
 .white-space-nowrap{
   white-space:nowrap;
+}
+.texts-error {
+  color: var(--error);
+}
+.disabled-bg{
+  background-color: var(--background);
 }
