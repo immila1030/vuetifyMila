@@ -197,50 +197,113 @@
                         md="6"
                         class="d-flex align-center disabled"
                       >
-                        <label class="background w-100 h-100 label  align-content-sm-center text-end justify-end px-4" for="account">帳號 </label>
-                       <div class=" w-100">
-                        <v-text-field
-                          v-model="phone"
-                          id="account"
-                          disabled
-                          height="20"
-                          variant="outlined"
-                        ></v-text-field>
-                       </div>
-                      </v-col>
-                      <v-col cols="12" md="6" class="d-flex align-center">
-                        <label  class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4" for="name"
-                          >名稱<span class="red-asterisk texts-error">*</span>
+                        <label
+                          class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
+                          for="account"
+                          >帳號
                         </label>
-                        <div class="d-flex flex-column w-100">
-                        <v-text-field
-                          id="name"
-                          v-model="firstname"
-                          :rules="firstnameRules"
-                          required
-                          @blur="validateFirstname"
-                          variant="outlined"
-                          elevation="0"
-                        ></v-text-field>
-                        <span v-if="firstnameError" class="texts-error error-message">{{
-                          firstnameError
-                        }}</span>
+                        <div class="w-100">
+                          <v-text-field
+                            v-model="phone"
+                            id="account"
+                            disabled
+                            height="20"
+                            variant="outlined"
+                          ></v-text-field>
                         </div>
                       </v-col>
                       <v-col cols="12" md="6" class="d-flex align-center">
-                        <label class="background w-100 h-100 label  align-content-sm-center text-end px-4" for="email">電子郵件 </label>
+                        <label
+                          class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
+                          for="name"
+                          >名稱<span class="red-asterisk texts-error">*</span>
+                        </label>
                         <div class="d-flex flex-column w-100">
-                        <v-text-field
-                          id="email"
-                          v-model="email"
-                          :rules="emailRules"
-                          required
-                          @blur="validateEmail"
-                          variant="outlined"
-                        ></v-text-field>
-                         <span v-if="emailError" class="texts-error error-message">{{
-                          emailError
-                        }}</span>
+                          <v-text-field
+                            id="name"
+                            v-model="firstname"
+                            placeholder="請輸入名稱"
+                            :rules="firstnameRules"
+                            required
+                            @blur="validateFirstname"
+                            variant="outlined"
+                            elevation="0"
+                          ></v-text-field>
+                          <span
+                            v-if="firstnameError"
+                            class="texts-error error-message"
+                            >{{ firstnameError }}</span
+                          >
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6" class="d-flex align-center">
+                        <label
+                          class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
+                          for="cellphone"
+                          >聯絡電話
+                        </label>
+                        <div class="d-flex flex-column w-100">
+                          <v-text-field
+                            id="cellphone"
+                            v-model="cellphone"
+                            placeholder="請輸入聯絡電話"
+                            :rules="cellphoneRules"
+                            required
+                            @blur="validateCellphone"
+                            variant="outlined"
+                            elevation="0"
+                          ></v-text-field>
+                          <span
+                            v-if="cellphoneError"
+                            class="texts-error error-message"
+                            >{{ cellphoneError }}</span
+                          >
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6" class="d-flex align-center">
+                        <label
+                          class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
+                          for="cellphone"
+                          >性別
+                        </label>
+                        <div class="d-flex flex-column w-100">
+                          <!-- <v-text-field
+                            id="cellphone"
+                            v-model="cellphone"
+                            placeholder="請輸入聯絡電話"
+                            :rules="cellphoneRules"
+                            required
+                            @blur="validateCellphone"
+                            variant="outlined"
+                            elevation="0"
+                          ></v-text-field>
+                          <span
+                            v-if="cellphoneError"
+                            class="texts-error error-message"
+                            >{{ cellphoneError }}</span
+                          > -->
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="6" class="d-flex align-center">
+                        <label
+                          class="background w-100 h-100 label align-content-sm-center text-end px-4"
+                          for="email"
+                          >電子郵件
+                        </label>
+                        <div class="d-flex flex-column w-100">
+                          <v-text-field
+                            id="email"
+                            v-model="email"
+                            :rules="emailRules"
+                            required
+                            @blur="validateEmail"
+                            variant="outlined"
+                          ></v-text-field>
+                          <span
+                            v-if="emailError"
+                            class="texts-error error-message"
+                            >{{ emailError }}</span
+                          >
                         </div>
                       </v-col>
                     </v-row>
@@ -280,6 +343,8 @@ const firstname = ref("");
 const firstnameError = ref("");
 const email = ref("");
 const emailError = ref("");
+const cellphone = ref("");
+const cellphoneError = ref("");
 // 名稱驗證
 const firstnameRules = [
   (value: string) => {
@@ -291,7 +356,7 @@ const firstnameRules = [
     return "名稱不能超過10個字元";
   },
 ];
-
+// 名稱錯誤訊息
 const validateFirstname = () => {
   firstnameError.value = "";
   // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
@@ -299,7 +364,27 @@ const validateFirstname = () => {
     const result = rule(firstname.value);
     if (result !== true) {
       firstnameError.value = result;
-      break; 
+      break;
+    }
+  }
+};
+// 電話驗證
+const cellphoneRules = [
+  (value: string) => {
+    if (!value) return true; // 沒有輸入時，可以通過驗證
+    if (/^\d{10}$/.test(value)) return true; // 簡單驗證是否為10位數手機號碼
+    return "請輸入有效的手機號碼";
+  },
+];
+// 電話錯誤訊息
+const validateCellphone = () => {
+  cellphoneError.value = "";
+  // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
+  for (const rule of cellphoneRules) {
+    const result = rule(cellphone.value);
+    if (result !== true) {
+      cellphoneError.value = result;
+      break;
     }
   }
 };
@@ -308,9 +393,10 @@ const emailRules = [
   (value: string) => {
     if (!value) return true; // 沒有輸入時，可以通過驗證
     if (/.+@.+\..+/.test(value)) return true; // 有輸入時要驗證格式
-    return "請輸入有效的電子郵件地址";
+    return "請輸入有效的電子郵件";
   },
 ];
+// 電子郵件錯誤訊息
 const validateEmail = () => {
   emailError.value = "";
   // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
@@ -318,7 +404,7 @@ const validateEmail = () => {
     const result = rule(email.value);
     if (result !== true) {
       emailError.value = result;
-      break; 
+      break;
     }
   }
 };
@@ -333,8 +419,8 @@ const validateEmail = () => {
   background: linear-gradient(101.87deg, #4a7a80 2.37%, #2c2c2c 96.2%);
 }
 
-/* 空間過多時，需要指定到v-card的下一層改變套件的CSS，所以使用v-deep */
-::v-deep .v-card {
+/* 空間過多時，需要指定到v-card的下一層改變套件的CSS，所以使用deep */
+:deep(.v-card) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -343,43 +429,43 @@ const validateEmail = () => {
 /* 如果要按照設計稿需要讓input有border，我需要用這樣的方式讓它可以有邊框
 如果使用vuetify的v-text-field 它會包含v-input__control(輸入框)和v-input__details(輸入驗證的錯誤訊息)
 即便不用驗證，一樣會存在 */
-::v-deep input {
+:deep(input) {
   border: 1px solid var(--secondaryGray);
   border-radius: 4px;
   height: 20px;
 }
 /* 而當input被禁用時，也需要使用這樣的方式改它的css */
 /* 取消套件它原有的input透明度和背景顏色 */
-::v-deep .v-field--disabled {
+:deep(.v-field--disabled) {
   opacity: unset;
   background: var(--input);
 }
 /* 修改套件原有的padding 這些都是需要用開發人員工具去找到它在哪個位置，
 名稱分別不同之外，放置的位置也不同，如沒有用這種方式，無法修改它預設默認
 的CSS */
-::v-deep .v-input--density-default {
+:deep(.v-input--density-default) {
   --v-input-control-height: 0px;
   --v-input-padding-top: 12px;
   margin: 12px 20px;
 }
 
-::v-deep .v-field {
+:deep(.v-field) {
   --v-field-padding-start: 14px;
   --v-field-padding-end: 14px;
 }
-::v-deep .v-input--density-default .v-field--no-label {
-    --v-field-padding-bottom: 12px;
+:deep(.v-input--density-default .v-field--no-label) {
+  --v-field-padding-bottom: 12px;
 }
-::v-deep .v-input__details {
+:deep(.v-input__details) {
   display: none;
 }
 .v-sheet {
   background: transparent;
 }
-.label{
- max-width: 120px;
+.label {
+  max-width: 120px;
 }
-.error-message{
+.error-message {
   margin: 0 20px;
 }
 </style>
