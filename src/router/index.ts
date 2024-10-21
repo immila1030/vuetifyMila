@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '@/components/MainLayout.vue';
-import Dashboard from '@/components/Dashboard.vue'; 
-import Work from '@/components/Work.vue'; 
-import Projects from '@/components/Projects.vue'; 
-import Materials from '@/components/Materials.vue'; 
-import Team from '@/components/Team.vue'; 
-import Live from '@/components/Live.vue'; 
-import Data from '@/components/Data.vue'; 
-import Profile from '@/components/Profile.vue'; 
+import UserDashboard from '@/components/UserDashboard.vue'; 
+import UserWork from '@/components/UserWork.vue'; 
+import UserProjects from '@/components/UserProjects.vue'; 
+import MaterialList from '@/components/MaterialList.vue'; 
+import UserTeam from '@/components/UserTeam.vue'; 
+import LiveStreaming from '@/components/LiveStreaming.vue'; 
+import UserData from '@/components/UserData.vue'; 
+import UserProfile from '@/components/UserProfile.vue'; 
 
 const routes = [
   {
@@ -15,14 +15,14 @@ const routes = [
     component: MainLayout,
     children: [
       { path: '', redirect: 'home' },
-      { path: 'home', name: 'Dashboard', component: Dashboard },
-      { path: 'work', name: 'Work', component: Work },
-      { path: 'projects', name: 'Projects', component: Projects },
-      { path: 'materials', name: 'Materials', component: Materials },
-      { path: 'team', name: 'Team', component: Team },
-      { path: 'live', name: 'Live', component: Live },
-      { path: 'data', name: 'Data', component: Data },
-      { path: 'profile', name: 'Profile', component: Profile }
+      { path: 'home', name: 'UserDashboard', component: UserDashboard },
+      { path: 'work', name: 'UserWork', component: UserWork },
+      { path: 'projects', name: 'UserProjects', component: UserProjects },
+      { path: 'materials', name: 'MaterialList', component: MaterialList },
+      { path: 'team', name: 'UserTeam', component: UserTeam },
+      { path: 'live', name: 'LiveStreaming', component: LiveStreaming },
+      { path: 'data', name: 'UserData', component: UserData },
+      { path: 'profile', name: 'UserProfile', component: UserProfile }
     ]
   }
 ];

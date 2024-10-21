@@ -10,7 +10,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import path from 'path';
 // Utilities
 import { defineConfig } from 'vite';
-import { fileURLToPath, URL } from 'node:url';
+// import { fileURLToPath, URL } from 'node:url';
 import { visualizer } from 'rollup-plugin-visualizer';
 // https://vitejs.dev/config/
 export default defineConfig({
