@@ -266,23 +266,10 @@
                           for="cellphone"
                           >性別
                         </label>
-                        <div class="d-flex flex-column w-100">
-                          <!-- <v-text-field
-                            id="cellphone"
-                            v-model="cellphone"
-                            placeholder="請輸入聯絡電話"
-                            :rules="cellphoneRules"
-                            required
-                            @blur="validateCellphone"
-                            variant="outlined"
-                            elevation="0"
-                          ></v-text-field>
-                          <span
-                            v-if="cellphoneError"
-                            class="texts-error error-message"
-                            >{{ cellphoneError }}</span
-                          > -->
-                        </div>
+                        <v-radio-group inline>
+                            <v-radio label="男" value="one"></v-radio>
+                            <v-radio label="女" value="two"></v-radio>
+                          </v-radio-group>
                       </v-col>
                       <v-col cols="12" md="6" class="d-flex align-center">
                         <label
@@ -458,6 +445,13 @@ const validateEmail = () => {
 }
 :deep(.v-input__details) {
   display: none;
+}
+:deep(.v-selection-control__input input) {
+  opacity: 1;
+}
+:deep(.v-selection-control__input) {
+  width: unset;
+  height: unset;
 }
 .v-sheet {
   background: transparent;
