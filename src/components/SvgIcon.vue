@@ -13,7 +13,7 @@ import { computed } from "vue"
 const props = defineProps({
   name: { type: String, required: true },
   width: { type: String, default: "16px" },
-  height: { type: String, default: "16px" },
+  height: { type: String, default: "" },
   className: { type: String, default: "" },
 })
 const _height = computed(() => {
