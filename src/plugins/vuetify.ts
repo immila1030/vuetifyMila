@@ -6,11 +6,11 @@
 
 // Styles
 // import "@mdi/font/css/materialdesignicons.css";
-import "vuetify/styles";
-import "@/styles/settings.scss";
-import "@/styles/styles.css";
+import "vuetify/styles"
+import "@/styles/settings.scss"
+import "@/styles/styles.css"
 // Composables
-import { createVuetify } from "vuetify";
+import { createVuetify,ThemeDefinition } from "vuetify"
 
 // // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 const myCustomLightTheme: ThemeDefinition = {
@@ -27,7 +27,7 @@ const myCustomLightTheme: ThemeDefinition = {
     // warning: "#EB9717",
     // something: "#015C61",
   },
-};
+}
 
 export default createVuetify({
   theme: {
@@ -36,4 +36,4 @@ export default createVuetify({
       myCustomLightTheme,
     },
   },
-});
+})

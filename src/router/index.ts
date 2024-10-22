@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import MainLayout from '@/components/MainLayout.vue';
-import UserDashboard from '@/components/UserDashboard.vue'; 
-import UserWork from '@/components/UserWork.vue'; 
-import UserProjects from '@/components/UserProjects.vue'; 
-import MaterialList from '@/components/MaterialList.vue'; 
-import UserTeam from '@/components/UserTeam.vue'; 
-import LiveStreaming from '@/components/LiveStreaming.vue'; 
-import UserData from '@/components/UserData.vue'; 
-import UserProfile from '@/components/UserProfile.vue'; 
+import { createRouter, createWebHistory } from 'vue-router'
+import MainLayout from '@/components/MainLayout.vue'
+import UserDashboard from '@/components/UserDashboard.vue' 
+import UserWork from '@/components/UserWork.vue' 
+import UserProjects from '@/components/UserProjects.vue' 
+import MaterialList from '@/components/MaterialList.vue' 
+import UserTeam from '@/components/UserTeam.vue' 
+import LiveStreaming from '@/components/LiveStreaming.vue' 
+import UserData from '@/components/UserData.vue' 
+import UserProfile from '@/components/UserProfile.vue' 
 
 const routes = [
   {
@@ -25,11 +25,11 @@ const routes = [
       { path: 'profile', name: 'UserProfile', component: UserProfile }
     ]
   }
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-export default router;
+export default router

@@ -5,11 +5,13 @@
  */
 
 // Plugins
-import vuetify from "./vuetify";
-import router from "../router";
+import vuetify from "./vuetify"
+import router from "../router"
+import type { App } from "vue"
+
 // Types
 // import type { App } from "vue";
 
-export function registerPlugins(app: App) {
-  app.use(vuetify).use(router);
+export function registerPlugins (app: App) {
+  app.use(vuetify).use(router)
 }

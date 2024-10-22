@@ -5,7 +5,10 @@
     </p>
     <v-row justify="center">
       <!-- 第一張卡片 -->
-      <v-col cols="3" class="d-flex">
+      <v-col
+        cols="3"
+        class="d-flex"
+      >
         <v-card
           :variant="variant"
           class="mx-auto rounded-lg flex-grow-1"
@@ -20,7 +23,10 @@
                 height="22"
                 class="text-overline mb-1 btn-text-white level-bg py-1 px-2 rounded d-flex align-center btn-text-white"
               >
-                <svg-icon name="Level" class="mr-1 texts-sm" />普通
+                <svg-icon
+                  name="Level"
+                  class="mr-1 texts-sm"
+                />普通
               </div>
               <v-btn
                 class="rounded-50 texts-primary px-8 py-3 d-flex texts-md btn-bg-white"
@@ -35,7 +41,10 @@
               v-bind="props"
               class="d-flex align-center cursor-pointer texts-primary"
             >
-              <v-avatar :image="avatar" size="50"></v-avatar>
+              <v-avatar
+                :image="avatar"
+                size="50"
+              />
               <span class="ml-2 texts-lg font-weight-bold">{{ name }}</span>
             </div>
           </v-card-item>
@@ -45,7 +54,10 @@
         </v-card>
       </v-col>
       <!-- 第二張卡片 -->
-      <v-col cols="3" class="d-flex">
+      <v-col
+        cols="3"
+        class="d-flex"
+      >
         <v-card
           :variant="variant"
           class="flex-grow-1 mx-auto rounded-lg asideMenu"
@@ -59,7 +71,9 @@
                 height="22"
                 class="text-overline mb-1 btn-text-white level-bg py-1 px-2 rounded d-flex align-center btn-text-white"
               >
-                <p class="texts-sm white-space-nowrap">管理員</p>
+                <p class="texts-sm white-space-nowrap">
+                  管理員
+                </p>
               </div>
               <v-btn
                 class="rounded-50 texts-primary px-8 py-3 d-flex texts-md btn-bg-white"
@@ -73,7 +87,7 @@
             <div
               v-bind="props"
               class="d-flex align-center cursor-pointer texts-primary"
-            ></div>
+            />
           </v-card-item>
           <v-card-actions class="texts-primary-gray px-5 pt-0 pb-5 texts-m">
             <p>2020-10-20 創建</p>
@@ -81,7 +95,10 @@
         </v-card>
       </v-col>
       <!-- 第三張卡片 -->
-      <v-col cols="3" class="d-flex">
+      <v-col
+        cols="3"
+        class="d-flex"
+      >
         <v-card
           :variant="variant"
           class="flex-grow-1 mx-auto rounded-lg asideMenu"
@@ -103,18 +120,21 @@
             <div
               v-bind="props"
               class="d-flex align-center cursor-pointer texts-primary"
-            ></div>
+            />
           </v-card-item>
           <v-card-actions
             class="texts-primary-gray px-5 pt-0 pb-5 texts-m d-flex align-center justify-space-between"
           >
-            <v-sheet class="d-flex align-center w-100" rounded="lg">
+            <v-sheet
+              class="d-flex align-center w-100"
+              rounded="lg"
+            >
               <v-progress-linear
                 rounded
                 class="progress-bg-color texts-secondary-color mr-2"
                 model-value="20"
                 :height="8"
-              ></v-progress-linear>
+              />
               <div
                 class="texts-secondary-gray d-flex justify-space-between texts-md"
               >
@@ -125,7 +145,10 @@
         </v-card>
       </v-col>
       <!-- 第四張卡片 -->
-      <v-col cols="3" class="d-flex">
+      <v-col
+        cols="3"
+        class="d-flex"
+      >
         <v-card
           :variant="variant"
           class="flex-grow-1 mx-auto rounded-lg asideMenu"
@@ -147,11 +170,13 @@
             <div
               v-bind="props"
               class="d-flex align-center cursor-pointer texts-primary"
-            ></div>
+            />
           </v-card-item>
           <v-card-actions class="texts-primary-gray px-5 pt-0 pb-5">
             <div class="borders-point rounded-circle px-2 py-0">
-              <p class="texts-primary">P</p>
+              <p class="texts-primary">
+                P
+              </p>
             </div>
             <p>剩餘點數：<span class="texts-primary texts-lg">5點</span></p>
           </v-card-actions>
@@ -160,7 +185,10 @@
     </v-row>
     <!-- 個人帳戶設置 -->
     <v-row class="h-100">
-      <v-col cols="12" class="d-flex h-100">
+      <v-col
+        cols="12"
+        class="d-flex h-100"
+      >
         <v-card
           :variant="variant"
           class="flex-grow-1 mx-auto rounded-lg asideMenu mb-7"
@@ -181,7 +209,7 @@
                 <p class="texts-lg font-weight-bold pl-2 borders-primary mb-5">
                   基本資料
                 </p>
-                <v-divider class="border-opacity-25"></v-divider>
+                <v-divider class="border-opacity-25" />
                 <v-form v-model="valid">
                   <v-container>
                     <v-row>
@@ -200,23 +228,27 @@
                         <label
                           class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
                           for="account"
-                          >帳號
+                        >帳號
                         </label>
                         <div class="w-100">
                           <v-text-field
-                            v-model="phone"
                             id="account"
+                            v-model="phone"
                             disabled
                             height="20"
                             variant="outlined"
-                          ></v-text-field>
+                          />
                         </div>
                       </v-col>
-                      <v-col cols="12" md="6" class="d-flex align-center">
+                      <v-col
+                        cols="12"
+                        md="6"
+                        class="d-flex align-center"
+                      >
                         <label
                           class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
                           for="name"
-                          >名稱<span class="red-asterisk texts-error">*</span>
+                        >名稱<span class="red-asterisk texts-error">*</span>
                         </label>
                         <div class="d-flex flex-column w-100">
                           <v-text-field
@@ -225,22 +257,25 @@
                             placeholder="請輸入名稱"
                             :rules="firstnameRules"
                             required
-                            @blur="validateFirstname"
                             variant="outlined"
                             elevation="0"
-                          ></v-text-field>
+                            @blur="validateFirstname"
+                          />
                           <span
                             v-if="firstnameError"
                             class="texts-error error-message"
-                            >{{ firstnameError }}</span
-                          >
+                          >{{ firstnameError }}</span>
                         </div>
                       </v-col>
-                      <v-col cols="12" md="6" class="d-flex align-center">
+                      <v-col
+                        cols="12"
+                        md="6"
+                        class="d-flex align-center"
+                      >
                         <label
                           class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
                           for="cellphone"
-                          >聯絡電話
+                        >聯絡電話
                         </label>
                         <div class="d-flex flex-column w-100">
                           <v-text-field
@@ -249,33 +284,46 @@
                             placeholder="請輸入聯絡電話"
                             :rules="cellphoneRules"
                             required
-                            @blur="validateCellphone"
                             variant="outlined"
                             elevation="0"
-                          ></v-text-field>
+                            @blur="validateCellphone"
+                          />
                           <span
                             v-if="cellphoneError"
                             class="texts-error error-message"
-                            >{{ cellphoneError }}</span
-                          >
+                          >{{ cellphoneError }}</span>
                         </div>
                       </v-col>
-                      <v-col cols="12" md="6" class="d-flex align-center">
+                      <v-col
+                        cols="12"
+                        md="6"
+                        class="d-flex align-center"
+                      >
                         <label
                           class="background w-100 h-100 label align-content-sm-center text-end justify-end px-4"
                           for="cellphone"
-                          >性別
+                        >性別
                         </label>
                         <v-radio-group inline>
-                            <v-radio label="男" value="one"></v-radio>
-                            <v-radio label="女" value="two"></v-radio>
-                          </v-radio-group>
+                          <v-radio
+                            label="男"
+                            value="one"
+                          />
+                          <v-radio
+                            label="女"
+                            value="two"
+                          />
+                        </v-radio-group>
                       </v-col>
-                      <v-col cols="12" md="6" class="d-flex align-center">
+                      <v-col
+                        cols="12"
+                        md="6"
+                        class="d-flex align-center"
+                      >
                         <label
                           class="background w-100 h-100 label align-content-sm-center text-end px-4"
                           for="email"
-                          >電子郵件
+                        >電子郵件
                         </label>
                         <div class="d-flex flex-column w-100">
                           <v-text-field
@@ -283,14 +331,13 @@
                             v-model="email"
                             :rules="emailRules"
                             required
-                            @blur="validateEmail"
                             variant="outlined"
-                          ></v-text-field>
+                            @blur="validateEmail"
+                          />
                           <span
                             v-if="emailError"
                             class="texts-error error-message"
-                            >{{ emailError }}</span
-                          >
+                          >{{ emailError }}</span>
                         </div>
                       </v-col>
                     </v-row>
@@ -301,7 +348,7 @@
             <div
               v-bind="props"
               class="d-flex align-center cursor-pointer texts-primary"
-            ></div>
+            />
           </v-card-item>
           <v-card-actions class="justify-center px-5 pt-0 pb-5">
             <v-btn
@@ -320,81 +367,81 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import avatar from "@/assets/images/avatar.jpg";
-const name = "陳經理";
-const phone = "0921302697";
-import { inject } from "vue";
-const isDarkMode = inject("isDarkMode");
-const firstname = ref("");
-const firstnameError = ref("");
-const email = ref("");
-const emailError = ref("");
-const cellphone = ref("");
-const cellphoneError = ref("");
+import { ref } from "vue"
+import avatar from "@/assets/images/avatar.jpg"
+const name = "陳經理"
+const phone = "0921302697"
+import { inject } from "vue"
+const isDarkMode = inject("isDarkMode")
+const firstname = ref("")
+const firstnameError = ref("")
+const email = ref("")
+const emailError = ref("")
+const cellphone = ref("")
+const cellphoneError = ref("")
 // 名稱驗證
 const firstnameRules = [
   (value: string) => {
-    if (value) return true;
-    return "請填寫名稱";
+    if (value) return true
+    return "請填寫名稱"
   },
   (value: string) => {
-    if (value?.length <= 10) return true;
-    return "名稱不能超過10個字元";
+    if (value?.length <= 10) return true
+    return "名稱不能超過10個字元"
   },
-];
+]
 // 名稱錯誤訊息
 const validateFirstname = () => {
-  firstnameError.value = "";
+  firstnameError.value = ""
   // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
   for (const rule of firstnameRules) {
-    const result = rule(firstname.value);
+    const result = rule(firstname.value)
     if (result !== true) {
-      firstnameError.value = result;
-      break;
+      firstnameError.value = result
+      break
     }
   }
-};
+}
 // 電話驗證
 const cellphoneRules = [
   (value: string) => {
-    if (!value) return true; // 沒有輸入時，可以通過驗證
-    if (/^\d{10}$/.test(value)) return true; // 簡單驗證是否為10位數手機號碼
-    return "請輸入有效的手機號碼";
+    if (!value) return true // 沒有輸入時，可以通過驗證
+    if (/^\d{10}$/.test(value)) return true // 簡單驗證是否為10位數手機號碼
+    return "請輸入有效的手機號碼"
   },
-];
+]
 // 電話錯誤訊息
 const validateCellphone = () => {
-  cellphoneError.value = "";
+  cellphoneError.value = ""
   // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
   for (const rule of cellphoneRules) {
-    const result = rule(cellphone.value);
+    const result = rule(cellphone.value)
     if (result !== true) {
-      cellphoneError.value = result;
-      break;
+      cellphoneError.value = result
+      break
     }
   }
-};
+}
 // 電子郵件驗證
 const emailRules = [
   (value: string) => {
-    if (!value) return true; // 沒有輸入時，可以通過驗證
-    if (/.+@.+\..+/.test(value)) return true; // 有輸入時要驗證格式
-    return "請輸入有效的電子郵件";
+    if (!value) return true // 沒有輸入時，可以通過驗證
+    if (/.+@.+\..+/.test(value)) return true // 有輸入時要驗證格式
+    return "請輸入有效的電子郵件"
   },
-];
+]
 // 電子郵件錯誤訊息
 const validateEmail = () => {
-  emailError.value = "";
+  emailError.value = ""
   // 驗證每一個規則，如果有一個規則成立錯誤，則返回錯誤訊息
   for (const rule of emailRules) {
-    const result = rule(email.value);
+    const result = rule(email.value)
     if (result !== true) {
-      emailError.value = result;
-      break;
+      emailError.value = result
+      break
     }
   }
-};
+}
 </script>
 
 <style scoped>

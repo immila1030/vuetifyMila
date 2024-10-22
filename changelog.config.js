@@ -89,4 +89,4 @@ module.exports = {
       "此次 Commit 會關閉的 Issues, e.g #123(可選，若無，請按 Enter 略過):",
     confirmCommit: "請確認本次 Commit 描述。\n",
   },
-};
+}
