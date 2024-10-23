@@ -1,12 +1,13 @@
 <template>
   <div>
     <p class="title">{{ title }}</p>
+    <p class="title">{{ reversedTitle }}</p>
     <button @click="toggleText">按一下</button>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent } from "vue"
+import { ref } from "vue"
 // 目前找到的方法無法針對setup內進行判斷順序問題，無論是export default 裡的 setup()
 // 或是 <script setup lang="ts"> 都無法，但有找到eslint官方文件說明有針對vue/order-in-components
 // 這會強制針對組件中屬性的順序
@@ -23,14 +24,11 @@ import { ref, computed, defineComponent } from "vue"
 ///// lifecycle /////
 // onMounted(() => {});
 // 他們使用的方式是規劃團隊寫程式碼前，需要使用註解來表示順序
-export default defineComponent({
+export default {
   name: "MyComponent",
   setup () {
     const title = ref("順序問題")
 
-    const reversedTitle = computed(() =>
-      title.value.split("").reverse().join("")
-    )
 
     function toggleText () {
       console.log("按鈕")
@@ -39,12 +37,13 @@ export default defineComponent({
 
     return {
       title,
-      toggleText,
-      reversedTitle,
+      toggleText
     }
   },
-  computed () {
-    console.log("computed")
+  computed : {
+    reversedTitle () {
+      return this.title.split('').reverse().join('')
+    }
   },
   watch: {
     title (newValue: string) {
@@ -53,9 +52,11 @@ export default defineComponent({
   },
   mounted () {
     console.log("mounted")
-  }
+  },
 
-})
+
+
+}
 </script>
 
 <style scoped>

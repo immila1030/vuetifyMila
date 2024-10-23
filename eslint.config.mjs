@@ -20,7 +20,6 @@ export default [
     rules: {
       'no-unused-vars': 'warn',
       '@stylistic/indent': ['error', 2],
-      '@stylistic/semi': ['error', 'never'],
       '@stylistic/space-before-function-paren': ['error', 'always'],
       'vue/order-in-components': [
         'error',
@@ -54,6 +53,7 @@ export default [
             'head',
             'computed',
             'watch',
+            'mounted',
             'watchQuery',
             'LIFECYCLE_HOOKS',
             'methods',
