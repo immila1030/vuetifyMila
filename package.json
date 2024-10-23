@@ -24,6 +24,7 @@
     "@babel/types": "^7.25.8",
     "@eslint/js": "^9.13.0",
     "@stylistic/eslint-plugin": "^2.9.0",
+    "@total-typescript/tsconfig": "^1.0.4",
     "@types/node": "^20.16.14",
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",

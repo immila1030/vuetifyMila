@@ -88,18 +88,24 @@ export default [
       },
     },
   },
+  // https://eslint.org/docs/latest/use/configure/ignore  取消檢查dist
   {
-    // 取消檢查dist檔案
-    files: ['dist/**/*'],
-    rules: {
-      'no-unused-vars': 'off', //取消檢查未使用變數
-      'no-undef': 'off', //取消檢查未定義變數
-      'no-prototype-builtins': 'off', //取消檢查hasOwnProperty(Object.prototype的hasOwnProperty)
-      'no-setter-return': 'off', //取消檢查 setter
-      'no-empty': 'off', //取消檢查 空區塊 (if (true))
-      'no-cond-assign': 'off', //取消檢查 條件式出現賦值 (if(x=1))
-      'no-useless-escape': 'off', // 取消檢查轉義字符 (如報錯的 \/)
-      'no-case-declarations': 'off', //取消檢查switch的cass聲明變數
-    },
-  },
+    ignores: [
+      "dist/**/*",
+    ]
+  }
+  // {
+  //   // 取消檢查dist檔案
+  //   files: ['dist/**/*'],
+  //   rules: {
+  //     'no-unused-vars': 'off', //取消檢查未使用變數
+  //     'no-undef': 'off', //取消檢查未定義變數
+  //     'no-prototype-builtins': 'off', //取消檢查hasOwnProperty(Object.prototype的hasOwnProperty)
+  //     'no-setter-return': 'off', //取消檢查 setter
+  //     'no-empty': 'off', //取消檢查 空區塊 (if (true))
+  //     'no-cond-assign': 'off', //取消檢查 條件式出現賦值 (if(x=1))
+  //     'no-useless-escape': 'off', // 取消檢查轉義字符 (如報錯的 \/)
+  //     'no-case-declarations': 'off', //取消檢查switch的cass聲明變數
+  //   },
+  // },
 ]

@@ -10,7 +10,7 @@ import "vuetify/styles"
 import "@/styles/settings.scss"
 import "@/styles/styles.css"
 // Composables
-import { createVuetify,ThemeDefinition } from "vuetify"
+import { createVuetify } from "vuetify"
 const myCustomLightTheme: ThemeDefinition = {
   dark: false,
 }
