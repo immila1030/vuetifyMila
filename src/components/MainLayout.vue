@@ -57,7 +57,7 @@
                   />
                 </div>
               </template>
-              <!-- 這邊的v-list 試了使用p-0沒有效果，還是需要使用::v-deep -->
+              <!-- 這邊的v-list 試了使用p-0沒有效果，還是需要使用:deep -->
               <v-list
                 v-model="menuVisible"
                 class="mt-1 p-0 list-container"

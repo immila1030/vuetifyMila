@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script  lang="ts">
 import { ref } from "vue"
 // 目前找到的方法無法針對setup內進行判斷順序問題，無論是export default 裡的 setup()
 // 或是 <script setup lang="ts"> 都無法，但有找到eslint官方文件說明有針對vue/order-in-components
@@ -50,6 +50,7 @@ export default {
       console.log("watch", newValue)
     },
   },
+ 
   mounted () {
     console.log("mounted")
   },
